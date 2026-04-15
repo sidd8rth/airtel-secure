@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IoT & OT Security — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+<main id="stack-host"></main>
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "IoT & OT Security",
+  eyebrow: "Pillar · Phase 2 · H2 FY'27",
+  title: "IoT & OT Security — built for India's industrial reality.",
+  subtitle: "Plant floors, energy grids, smart cities, healthcare devices, fleet telematics. We bring Purdue-aware visibility, segmentation, OT SOC and asset discovery — without forcing your engineers onto IT timelines.",
+  phase: "● Phase 2 · H2 FY'27 launch",
+  phaseClass: "p2",
+  contactRole: "OT security engineer",
+  sideFeatures: [
+    "Network segmentation (Purdue-aware)",
+    "OT SOC & threat detection",
+    "Asset discovery & management",
+    "Identity & access for OT",
+    "Data encryption for OT comms",
+    "OT architecture & design",
+    "OT assessment",
+    "Device discovery & classification"
+  ],
+  capabilitiesHead: "Eight IoT/OT capabilities — IT discipline with OT respect.",
+  capabilitiesSub: "Our OT engineers come from manufacturing, energy and utilities — not just IT.",
+  capabilities: [
+    { name: "Network segmentation", desc: "Purdue-aware microsegmentation between IT, OT and DMZ. Conduit and zone enforcement, north-south + east-west." },
+    { name: "OT SOC / threat detection", desc: "Dedicated OT SOC with ICS protocol expertise (Modbus, DNP3, OPC, S7, IEC 61850). Tuned for OT — not just IT noise." },
+    { name: "Asset discovery & management", desc: "Passive discovery of every PLC, RTU, HMI, sensor and engineering workstation. No active scans on safety-critical networks." },
+    { name: "Identity & access for OT", desc: "Privileged remote access for engineers and vendors with full session recording, least privilege, MFA." },
+    { name: "Data encryption", desc: "Encryption for OT-to-cloud telemetry; certificate management for industrial protocols where supported." },
+    { name: "OT architecture & design", desc: "Reference architecture, segmentation design, vendor-neutral implementation oversight." },
+    { name: "OT assessment", desc: "ICS / SCADA risk assessment aligned to IEC 62443, NIST 800-82 and India's NCIIPC guidelines." },
+    { name: "Device discovery & classification", desc: "Auto-classify devices by function, criticality and known vulnerabilities. Feed into change and risk processes." }
+  ],
+  outcomes: [
+    { value: 40, suffix: "+", label: "OT protocols supported out-of-box" },
+    { value: 0, label: "Active scans on safety-critical networks" },
+    { value: 12, label: "Industrial verticals served" },
+    { value: 100, suffix: "%", label: "Aligned to IEC 62443" }
+  ],
+  howItWorks: [
+    { title: "Discover", desc: "Passive sensor or SPAN port; we map every device, conversation and protocol over 2-4 weeks." },
+    { title: "Baseline", desc: "Establish normal behaviour, identify rogue assets, vulnerable firmware, exposed protocols." },
+    { title: "Segment", desc: "Design and deploy Purdue-aware segmentation; vendor-neutral firewall enforcement." },
+    { title: "Operate", desc: "OT SOC with India-resident analysts trained in ICS protocols; tight collaboration with your plant engineers." }
+  ],
+  diagramTitle: "Purdue model with Airtel OT controls",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)">
+      <rect x="20" y="20" width="360" height="34" rx="8"/>
+      <rect x="20" y="62" width="360" height="34" rx="8"/>
+    </g>
+    <text x="200" y="42" text-anchor="middle" fill="#fff" font-size="11">L5 · Enterprise IT</text>
+    <text x="200" y="84" text-anchor="middle" fill="#fff" font-size="11">L4 · Site / business</text>
+    <rect x="20" y="104" width="360" height="20" rx="6" fill="rgba(228,0,0,.18)" stroke="rgba(228,0,0,.5)"/>
+    <text x="200" y="118" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">DMZ — Airtel segmentation + OT SOC</text>
+
+    <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)">
+      <rect x="20" y="132" width="360" height="34" rx="8"/>
+      <rect x="20" y="174" width="360" height="34" rx="8"/>
+      <rect x="20" y="216" width="360" height="14" rx="6"/>
+    </g>
+    <text x="200" y="154" text-anchor="middle" fill="#fff" font-size="11">L3 · Operations</text>
+    <text x="200" y="196" text-anchor="middle" fill="#fff" font-size="11">L2 · Control · HMI</text>
+    <text x="200" y="227" text-anchor="middle" fill="#fff" font-size="9">L0/L1 · PLC · Sensors</text>
+  </svg>`,
+  useCases: [
+    { industry: "Manufacturing", title: "Auto OEM — 4 plants, 14k devices", desc: "Asset discovery surfaced 2,400 unmanaged devices; Purdue segmentation deployed across all plants in 16 weeks.", metric: "2.4k unknown assets found" },
+    { industry: "Energy", title: "Distribution utility — substation security", desc: "Encrypted SCADA telemetry, hardened RTU configs, 24×7 OT SOC monitoring across 80 substations.", metric: "0 unauthorised commands" },
+    { industry: "Healthcare", title: "Hospital chain — medical IoT visibility", desc: "Discovered and classified 18,000 medical IoT devices; segmented vulnerable legacy devices into safe zone.", metric: "18k devices visible" }
+  ],
+  integrations: ["Claroty", "Nozomi", "Dragos", "Tenable OT", "Microsoft Defender for IoT", "Siemens", "Rockwell", "Schneider"],
+  faqs: [
+    { q: "Will deployment require plant downtime?", a: "No. We use passive sensors / SPAN ports — zero active scanning, zero impact on safety-critical operations." },
+    { q: "Can you support legacy devices that can't be patched?", a: "Yes. Compensating controls — segmentation, monitoring and IAM — are how we secure devices that can't be modified." },
+    { q: "Are you NCIIPC-aware?", a: "Yes — we map controls to NCIIPC guidelines and IEC 62443. Useful for critical sector entities." },
+    { q: "Who staffs the OT SOC?", a: "OT-dedicated analysts trained in ICS protocols. Separate physical / logical environment from the IT SOC." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

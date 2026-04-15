@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Managed Services — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+<main id="stack-host"></main>
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Managed Services",
+  eyebrow: "Pillar · Live",
+  title: "Managed Services — your 24×7 SOC, run by Airtel.",
+  subtitle: "AI-assisted detection, human-led response. India-resident SOCs in three regions, CERT-In empaneled, with outcome-based SLAs on MTTD, MTTR and coverage. The SOC you'd build if you had unlimited time and headcount.",
+  phase: "● Live · Available today",
+  phaseClass: "live",
+  contactRole: "SOC lead",
+  sideFeatures: [
+    "Managed SOC / MDR — 24×7",
+    "Threat intelligence",
+    "Deep & dark web monitoring",
+    "Brand abuse monitoring",
+    "Policy & patch management",
+    "SIEM + SOAR run-as-a-service"
+  ],
+  capabilitiesHead: "Five managed services. One accountable team.",
+  capabilitiesSub: "All telemetry comes into a single platform. Every alert is triaged by a human within minutes — not auto-closed.",
+  capabilities: [
+    { name: "Managed SOC / MDR", desc: "24×7 detection, triage, containment and reporting. Three Indian SOCs (Gurugram, Pune, Bangalore) for resilience and data residency." },
+    { name: "AI-assisted analyst tier", desc: "Agentic SOC analyst handles L1 triage in seconds. Human L2/L3 focus on real incidents — not noise. Reduces analyst burnout dramatically." },
+    { name: "Threat intelligence", desc: "India-focused threat intel — sector-specific feeds (BFSI, telecom, public), curated weekly executive briefings." },
+    { name: "Deep & dark web monitoring", desc: "Continuous scanning for leaked credentials, mentions of your brand, executive impersonation, and exposed customer data." },
+    { name: "Brand abuse monitoring", desc: "Look-alike domains, fake apps, social impersonation — discovered, reported, and (where possible) taken down." },
+    { name: "Policy & patch management", desc: "Vulnerability management, patch orchestration, configuration drift detection — with tight integration to your change process." }
+  ],
+  outcomes: [
+    { value: 4.2, suffix: " min", label: "Median MTTD across customer base" },
+    { value: 17, suffix: " min", label: "Median MTTR with auto-containment" },
+    { value: 48, suffix: "+", label: "Analysts on rotating shift" },
+    { value: 99.95, suffix: "%", label: "SOC platform availability" }
+  ],
+  howItWorks: [
+    { title: "Onboard", desc: "Telemetry from your endpoints, network, cloud and SaaS integrated in 4–6 weeks. Use cases mapped to MITRE ATT&CK." },
+    { title: "Tune", desc: "First 4 weeks are heavy tuning — we eliminate noise before going live so your team isn't paged for false positives." },
+    { title: "Operate", desc: "24×7 monitoring and response. Auto-containment for known incident classes, human-led for novel attacks." },
+    { title: "Improve", desc: "Monthly SOC review with CISO — top incidents, trends, control gaps, recommended changes. Quarterly purple team exercise." }
+  ],
+  diagramTitle: "How telemetry becomes outcomes",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)">
+      <rect x="20" y="20" width="80" height="40" rx="8"/>
+      <rect x="20" y="80" width="80" height="40" rx="8"/>
+      <rect x="20" y="140" width="80" height="40" rx="8"/>
+      <rect x="20" y="200" width="80" height="30" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="60" y="44">Endpoint</text>
+      <text x="60" y="104">Network</text>
+      <text x="60" y="164">Cloud</text>
+      <text x="60" y="220">SaaS</text>
+    </g>
+    <rect x="160" y="60" width="100" height="120" rx="14" fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)"/>
+    <text x="210" y="105" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Space Grotesk">Airtel SOC</text>
+    <text x="210" y="125" text-anchor="middle" fill="#a1a1aa" font-size="10">SIEM · SOAR · AI</text>
+    <text x="210" y="145" text-anchor="middle" fill="#a1a1aa" font-size="10">L1/2/3 analysts</text>
+    <g fill="rgba(46,204,113,.12)" stroke="rgba(46,204,113,.5)">
+      <rect x="300" y="40" width="80" height="40" rx="8"/>
+      <rect x="300" y="100" width="80" height="40" rx="8"/>
+      <rect x="300" y="160" width="80" height="40" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="340" y="64">Detect</text>
+      <text x="340" y="124">Contain</text>
+      <text x="340" y="184">Report</text>
+    </g>
+    <g stroke="rgba(228,0,0,.4)" fill="none">
+      <line x1="100" y1="40" x2="160" y2="100"/><line x1="100" y1="100" x2="160" y2="115"/>
+      <line x1="100" y1="160" x2="160" y2="130"/><line x1="100" y1="215" x2="160" y2="145"/>
+      <line x1="260" y1="100" x2="300" y2="60"/><line x1="260" y1="120" x2="300" y2="120"/><line x1="260" y1="140" x2="300" y2="180"/>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "BFSI", title: "Co-managed SOC for private bank", desc: "Bank kept tier-1 visibility, Airtel ran 24×7 ops + tier-3. Halved internal SOC headcount need.", metric: "MTTD 3.8 min" },
+    { industry: "Manufacturing", title: "MDR for global Indian conglomerate", desc: "Detected nation-state recon within 11 minutes; contained and remediated before any data exfiltration.", metric: "0 data lost" },
+    { industry: "Public", title: "State-owned enterprise dark-web monitoring", desc: "Surfaced and reset 4,200 leaked employee credentials before they were used in attack campaigns.", metric: "4.2k creds protected" }
+  ],
+  integrations: ["Splunk", "Microsoft Sentinel", "IBM QRadar", "Palo Alto XSIAM", "Sumo Logic", "Elastic", "Chronicle", "ServiceNow"],
+  faqs: [
+    { q: "Whose SIEM do you run on?", a: "Yours, ours, or hybrid. We work with Splunk, Sentinel, QRadar, XSIAM, Sumo, Chronicle and Elastic. We also have a managed SIEM offering on Airtel infrastructure." },
+    { q: "Where is the data stored?", a: "All telemetry stays in India — primary in Mumbai/Chennai with DR in Gurugram. CERT-In and DPDP aligned." },
+    { q: "Can analysts speak to my team during an incident?", a: "Yes. War-room access is standard. P1 incidents get a dedicated bridge within 15 minutes." },
+    { q: "What happens if you miss an SLA?", a: "Service credits, automatic. SLA misses are also reported to your CISO monthly with root-cause analysis." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

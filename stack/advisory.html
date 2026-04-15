@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advisory — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main id="stack-host"></main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Advisory",
+  eyebrow: "Pillar · Live",
+  title: "Advisory — strategy, compliance, training, audit.",
+  subtitle: "CISO-grade strategy without the search committee. We help you set the agenda, defend it to the board, and execute against it — across cyber strategy, compliance, training, audit and business continuity.",
+  phase: "● Live · Available today",
+  phaseClass: "live",
+  contactRole: "principal advisor",
+  sideFeatures: [
+    "Cyber strategy & roadmap",
+    "Compliance & regulatory advisory",
+    "Training & awareness programs",
+    "Program design & development",
+    "Business continuity management",
+    "Pre-bid & audit support"
+  ],
+  capabilitiesHead: "Six advisory streams. One accountable partner.",
+  capabilitiesSub: "All led by ex-CISOs, Big-4 partners and CERT-In empaneled assessors.",
+  capabilities: [
+    { name: "Cyber strategy development", desc: "3-year roadmap, target operating model, board narrative — built around your business priorities, not a generic framework." },
+    { name: "Compliance & regulatory", desc: "DPDP, RBI, SEBI, IRDAI, CERT-In and sector-specific frameworks. Gap assessment to controlled-state plan, with evidence." },
+    { name: "Training & awareness", desc: "Phishing simulation, role-based eLearning, executive war games, secure developer training. Behavioural metrics, not vanity metrics." },
+    { name: "Program design & development", desc: "We help you design, staff and run your security program — secondment, fractional CISO and managed-from-our-shop options." },
+    { name: "Business continuity & DR", desc: "BCM, RTO/RPO, tabletop exercises, DR site design, regulator-aligned BCP documentation." },
+    { name: "Pre-bid & audit support", desc: "Tender response, vendor evaluation, third-party assessments. We sit on your side of the table." }
+  ],
+  outcomes: [
+    { value: 60, suffix: "+", label: "BFSI advisory engagements live" },
+    { value: 100, suffix: "%", label: "Audit pass rate (RBI / SEBI / DPDP)" },
+    { value: 14, suffix: " days", label: "Median gap-analysis turnaround" },
+    { value: 4, suffix: "x", label: "Avg. board-readiness score uplift" }
+  ],
+  howItWorks: [
+    { title: "Diagnose", desc: "Two-week current-state discovery — interviews, control sampling, regulator mapping." },
+    { title: "Design", desc: "Target operating model, control catalogue, 3-year roadmap with quarterly milestones." },
+    { title: "Defend", desc: "Board-ready narrative, regulator pre-meets, internal stakeholder alignment." },
+    { title: "Deliver", desc: "Hand-off to your team, or run it for you with co-managed advisory + GRC platform." }
+  ],
+  diagramTitle: "Where Advisory plugs in",
+  diagramSub: "Advisory wraps every other pillar — from RFP through audit.",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <circle cx="200" cy="120" r="58" fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)"/>
+    <text x="200" y="118" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Space Grotesk">Advisory</text>
+    <text x="200" y="135" text-anchor="middle" fill="#a1a1aa" font-size="10">strategy · compliance · training</text>
+    <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)">
+      <rect x="20" y="20" width="100" height="40" rx="8"/>
+      <rect x="280" y="20" width="100" height="40" rx="8"/>
+      <rect x="20" y="180" width="100" height="40" rx="8"/>
+      <rect x="280" y="180" width="100" height="40" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="70" y="44">Secure Access</text>
+      <text x="330" y="44">Workforce</text>
+      <text x="70" y="204">Workload</text>
+      <text x="330" y="204">SOC / IR</text>
+    </g>
+    <g stroke="rgba(228,0,0,.3)" stroke-dasharray="4 3" fill="none">
+      <line x1="120" y1="40" x2="160" y2="100"/><line x1="280" y1="40" x2="240" y2="100"/>
+      <line x1="120" y1="200" x2="160" y2="140"/><line x1="280" y1="200" x2="240" y2="140"/>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "Banking", title: "RBI cyber framework readiness — Tier-1 bank", desc: "Full gap analysis, control build-out, board reporting and pre-audit dry-run.", metric: "Cleared in 1 attempt" },
+    { industry: "Insurance", title: "IRDAI-aligned BCM for life insurer", desc: "RTO/RPO refresh, DR design, regulator-aligned BCP documentation set.", metric: "RTO ↓ 67%" },
+    { industry: "Public sector", title: "Cyber strategy for state-owned utility", desc: "3-year roadmap, target operating model, fractional CISO for first 12 months.", metric: "Year-1 milestones met" }
+  ],
+  integrations: ["BitSight", "Archer", "ServiceNow GRC", "MetricStream", "OneTrust", "RSA", "SAP GRC", "Microsoft Purview"],
+  faqs: [
+    { q: "Can you act as our fractional CISO?", a: "Yes. We routinely staff fractional CISO and DPO roles on 12–24 month engagements, including board reporting and regulator interactions." },
+    { q: "Do you bring your own GRC platform?", a: "We can deploy ours, integrate with what you have (Archer, ServiceNow, MetricStream), or run a managed-GRC service." },
+    { q: "Are your assessors CERT-In empaneled?", a: "Yes — our advisory practice is CERT-In empaneled and our partners include ex-CISOs from BFSI and public sector." },
+    { q: "Can advisory be procured separately?", a: "Yes. Advisory is a standalone offering; you don't need to bundle it with the rest of Airtel Secure." }
+  ],
+  ctaTitle: "Need a defensible security strategy in 30 days?",
+  ctaSub: "We'll deliver a board-ready strategy, regulator-mapped controls and a 3-year roadmap inside one quarter."
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>
