@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Services — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+<main id="stack-host"></main>
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Professional Services",
+  eyebrow: "Pillar · Live",
+  title: "Professional Services — adversarial validation, on demand.",
+  subtitle: "Find your weaknesses before someone else does. CERT-In empaneled VAPT, full-scope red teaming, blue-team training and complex implementation services. Our work has been used in regulator submissions, M&A diligence and board reviews.",
+  phase: "● Live · Available today",
+  phaseClass: "live",
+  contactRole: "principal pen-tester",
+  sideFeatures: [
+    "VAPT — network · app · API · cloud",
+    "Red team / adversary simulation",
+    "Purple team exercises",
+    "Blue team capability uplift",
+    "Complex implementation services",
+    "Gap & risk assessment"
+  ],
+  capabilitiesHead: "Six service lines. Each led by an OSCP / CRTO-certified lead.",
+  capabilitiesSub: "We don't outsource testing. Every engagement is staffed by an Indian-resident, vetted team.",
+  capabilities: [
+    { name: "VAPT — full scope", desc: "Network, web app, mobile, API, cloud and infrastructure pen testing. CERT-In format reports for regulator submission." },
+    { name: "Red team / adversary simulation", desc: "Goal-based engagements: 'gain domain admin', 'exfiltrate customer PII', 'cause prolonged outage'. We assume nothing." },
+    { name: "Purple team exercises", desc: "Joint red + blue exercises against your SOC. Measure detection coverage against MITRE ATT&CK techniques." },
+    { name: "Blue team uplift", desc: "Detection engineering, threat hunting workshops, IR playbook development for your in-house team." },
+    { name: "Complex implementations", desc: "Multi-vendor SIEM migrations, SSE rollouts, Zero Trust transformations — delivered with senior architects." },
+    { name: "Gap & risk assessment", desc: "Comprehensive risk assessment against your chosen framework (NIST CSF, ISO 27001, RBI, SEBI), with prioritised remediation roadmap." }
+  ],
+  outcomes: [
+    { value: 240, suffix: "+", label: "Pen tests delivered last 12 months" },
+    { value: 100, suffix: "%", label: "Reports accepted by Indian regulators" },
+    { value: 45, label: "OSCP / CRTO certified consultants" },
+    { value: 78, suffix: "%", label: "Customers run quarterly red team" }
+  ],
+  howItWorks: [
+    { title: "Scope", desc: "1-week scoping with rules of engagement, success criteria, target list, escalation path." },
+    { title: "Execute", desc: "2-6 weeks of testing depending on scope. Daily flash reports for critical findings, weekly stand-ups with your team." },
+    { title: "Report", desc: "Executive summary, technical detail, evidence, fix recommendations and CERT-In compliant report. Defended to your board if needed." },
+    { title: "Re-test", desc: "Free remediation re-test within 60 days for closed findings. We don't leave until your team is confident." }
+  ],
+  diagramTitle: "Where Professional Services fits",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)">
+      <rect x="20" y="20" width="100" height="40" rx="8"/>
+      <rect x="280" y="20" width="100" height="40" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="70" y="44">Your stack</text>
+      <text x="330" y="44">Real attackers</text>
+    </g>
+    <rect x="120" y="80" width="160" height="120" rx="14" fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)"/>
+    <text x="200" y="120" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Space Grotesk">Airtel ProServ</text>
+    <text x="200" y="140" text-anchor="middle" fill="#a1a1aa" font-size="10">Red · Blue · Purple</text>
+    <text x="200" y="155" text-anchor="middle" fill="#a1a1aa" font-size="10">VAPT · Implementation</text>
+    <text x="200" y="180" text-anchor="middle" fill="#6ee8a6" font-size="11" font-weight="600">Validate · Harden · Train</text>
+    <g stroke="rgba(228,0,0,.4)" fill="none">
+      <line x1="120" y1="40" x2="160" y2="80"/>
+      <line x1="280" y1="40" x2="240" y2="80"/>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "BFSI", title: "API red team for digital bank", desc: "Found business logic flaw allowing unauthorised loan disbursal in test environment. Patched before launch.", metric: "₹4.2 Cr risk averted" },
+    { industry: "Telecom", title: "5G core security assessment", desc: "Comprehensive assessment of 5G core, signalling and management plane. 14 high/critical findings closed.", metric: "0 critical remaining" },
+    { industry: "Public", title: "Smart city pen test", desc: "Multi-week assessment across IoT devices, command centre and citizen apps. Findings disclosed responsibly.", metric: "120+ findings, all closed" }
+  ],
+  integrations: ["Burp", "Cobalt Strike", "Caldera", "Atomic Red Team", "Metasploit", "Nessus", "Qualys", "Checkmarx"],
+  faqs: [
+    { q: "Are you CERT-In empaneled for VAPT?", a: "Yes. Our reports are accepted by RBI, SEBI, IRDAI and CERT-In for compliance submissions." },
+    { q: "Will pen testing impact production?", a: "We default to non-disruptive techniques and pre-agreed rate limits. For destructive/DoS testing we always use staging environments." },
+    { q: "Can you test our cloud and SaaS too?", a: "Yes — AWS, Azure, GCP, Salesforce, M365, Workday and others. We follow each provider's responsible-disclosure rules." },
+    { q: "What's a purple team exercise?", a: "Joint exercise where our red team executes specific MITRE ATT&CK techniques and your blue team / SOC tries to detect them — measuring real coverage, not theoretical." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

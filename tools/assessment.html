@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security Maturity Self-Assessment — Airtel Secure</title>
+  <meta name="description" content="Benchmark your security posture in 3 minutes across 5 domains and get a personalised Airtel Secure blueprint." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .quiz-wrap { max-width: 880px; margin: 40px auto 100px; }
+    .progress { height: 4px; border-radius: 999px; background: #1a1a22; overflow: hidden; margin-bottom: 40px; }
+    .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--red), #ff8080); transition: width .4s ease; }
+
+    .q-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .q-step { color: var(--red-2); font-family: var(--mono); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+    .q-domain { color: var(--text-mute); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 6px; }
+    .q-title { font-family: var(--display); font-size: 1.7rem; font-weight: 700; margin: 12px 0 28px; line-height: 1.25; }
+
+    .opts { display: grid; gap: 12px; }
+    .opt {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px; border: 1px solid var(--border-2); border-radius: 14px;
+      background: #0d0d14; cursor: pointer; transition: all .2s ease;
+    }
+    .opt:hover { border-color: rgba(228,0,0,.5); background: rgba(228,0,0,.04); }
+    .opt.selected { border-color: var(--red); background: rgba(228,0,0,.08); box-shadow: 0 0 0 2px rgba(228,0,0,.25); }
+    .opt .radio {
+      width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border-2);
+      flex: 0 0 auto; margin-top: 2px; display: grid; place-items: center;
+      transition: all .2s;
+    }
+    .opt.selected .radio { border-color: var(--red); }
+    .opt.selected .radio::after { content: ""; width: 10px; height: 10px; background: var(--red); border-radius: 50%; }
+    .opt .txt { flex: 1; }
+    .opt .txt b { display: block; margin-bottom: 2px; font-size: .98rem; }
+    .opt .txt small { color: var(--text-mute); font-size: .84rem; line-height: 1.5; }
+
+    .q-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
+    .q-counter { color: var(--text-mute); font-size: .88rem; }
+
+    /* Results */
+    .results { display: none; }
+    .score-hero { text-align: center; padding: 40px 0 28px; }
+    .score-circle {
+      width: 220px; height: 220px; margin: 0 auto 20px;
+      position: relative;
+    }
+    .score-circle svg { transform: rotate(-90deg); }
+    .score-circle .score-num {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-family: var(--display); font-weight: 700; font-size: 3.4rem;
+    }
+    .score-circle .score-sub {
+      position: absolute; inset: 0; display: grid; place-items: end center;
+      padding-bottom: 42px; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-mute);
+    }
+    .tier-pill { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: .86rem; }
+    .tier-basic { background: rgba(255,100,100,.1); color: #ff8080; border: 1px solid rgba(255,100,100,.3); }
+    .tier-developing { background: rgba(255,176,32,.12); color: #ffc75a; border: 1px solid rgba(255,176,32,.3); }
+    .tier-established { background: rgba(6,182,212,.12); color: #5ee3f5; border: 1px solid rgba(6,182,212,.3); }
+    .tier-advanced { background: rgba(46,204,113,.12); color: #6ee8a6; border: 1px solid rgba(46,204,113,.3); }
+
+    .domain-row { display: grid; grid-template-columns: 180px 1fr 50px; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .domain-row:last-child { border: none; }
+    .domain-bar { height: 8px; border-radius: 999px; background: #1a1a22; overflow: hidden; }
+    .domain-bar > span { display: block; height: 100%; border-radius: 999px; }
+
+    .recs { display: grid; gap: 12px; margin-top: 20px; }
+    .rec {
+      padding: 18px; border-radius: 14px; border: 1px solid var(--border-2);
+      background: #0d0d14; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .rec .rank {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(180deg, rgba(228,0,0,.25), rgba(228,0,0,.05));
+      border: 1px solid rgba(228,0,0,.3);
+      display: grid; place-items: center;
+      color: var(--red-2); font-family: var(--display); font-weight: 700;
+      flex: 0 0 auto;
+    }
+    .rec .rec-body b { display: block; margin-bottom: 4px; }
+    .rec .rec-body small { color: var(--text-mute); font-size: .84rem; }
+    .rec .rec-body a { color: var(--red-2); font-weight: 600; font-size: .86rem; display: inline-block; margin-top: 8px; }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main>
+  <div class="container bread">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#tools">Tools</a><span>/</span><span>Maturity Assessment</span>
+  </div>
+
+  <div class="container quiz-wrap">
+
+    <!-- INTRO -->
+    <div id="intro" class="q-card">
+      <span class="eyebrow">Free · 3 minutes · No login</span>
+      <h1 style="margin:16px 0 12px;font-size:2.2rem">Security Maturity Self-Assessment</h1>
+      <p style="margin:0 0 24px">Benchmark your organisation across five domains — Governance, Identity, Network, Data, and Response. Your personalised score and a concrete Airtel Secure blueprint are generated instantly on this device.</p>
+      <div class="grid grid-3 mt-6" style="gap:14px">
+        <div style="padding:14px;border:1px solid var(--border);border-radius:12px"><b>10 questions</b><small style="display:block;color:var(--text-mute);margin-top:4px">Behavioural, not technical trivia</small></div>
+        <div style="padding:14px;border:1px solid var(--border);border-radius:12px"><b>5 domain scores</b><small style="display:block;color:var(--text-mute);margin-top:4px">Benchmarked vs peers</small></div>
+        <div style="padding:14px;border:1px solid var(--border);border-radius:12px"><b>Top-3 blueprint</b><small style="display:block;color:var(--text-mute);margin-top:4px">Mapped to SKUs & outcomes</small></div>
+      </div>
+      <div class="q-nav">
+        <span class="q-counter">Answers stay in your browser. Nothing is sent anywhere.</span>
+        <button class="btn btn-primary btn-lg" id="start-btn">Start assessment →</button>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz" style="display:none">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="q-card">
+        <div class="q-step" id="step-label">Question 1 of 10</div>
+        <div class="q-domain" id="domain-label"></div>
+        <h2 class="q-title" id="q-title"></h2>
+        <div class="opts" id="opts"></div>
+        <div class="q-nav">
+          <button class="btn btn-ghost" id="back-btn">← Back</button>
+          <span class="q-counter" id="q-counter"></span>
+          <button class="btn btn-primary" id="next-btn" disabled>Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="q-card">
+        <div class="score-hero">
+          <span class="eyebrow">Your result</span>
+          <div class="score-circle">
+            <svg width="220" height="220">
+              <circle cx="110" cy="110" r="96" stroke="#1a1a22" stroke-width="14" fill="none"/>
+              <circle id="score-ring" cx="110" cy="110" r="96" stroke="url(#grad)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="603" stroke-dashoffset="603"/>
+              <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ff2b2b"/><stop offset="1" stop-color="#ff8080"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="score-num" id="score-num">0</div>
+            <div class="score-sub">out of 100</div>
+          </div>
+          <div id="tier-pill" class="tier-pill tier-developing">Developing</div>
+          <p class="mt-4" style="max-width:560px;margin-inline:auto" id="tier-msg"></p>
+        </div>
+
+        <h3 style="margin-top:16px;margin-bottom:16px">Domain breakdown</h3>
+        <div id="domains"></div>
+
+        <h3 style="margin-top:36px;margin-bottom:16px">Your top-3 Airtel Secure blueprint</h3>
+        <div class="recs" id="recs"></div>
+
+        <div class="callout mt-8" style="text-align:center">
+          <h3>Want this turned into a live architecture?</h3>
+          <p style="max-width:520px;margin:10px auto 20px">Book a 30-min architecture session. We'll turn this score into a concrete blueprint with SLA targets and commercial range within 3 business days.</p>
+          <div style="display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <a class="btn btn-primary" href="../index.html#contact">Book architecture session →</a>
+            <a class="btn btn-ghost" href="tco.html">Calculate savings</a>
+            <a class="btn btn-ghost" href="architecture.html">Open architecture builder</a>
+            <button class="btn btn-ghost" id="retake-btn">Retake assessment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/quiz.js"></script>
+</body>
+</html>

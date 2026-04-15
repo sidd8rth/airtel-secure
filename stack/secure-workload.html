@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Workload — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+<main id="stack-host"></main>
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Secure Workload",
+  eyebrow: "Pillar · Phase 1 · H1 FY'27",
+  title: "Secure Workload — for cloud, code and APIs.",
+  subtitle: "Your workloads moved to the cloud. Your data sprawled across SaaS. Your APIs are now your business. Secure Workload covers WAAP, CNAPP, DSPM, DAM, AppSec and Cloud IAM — managed from one Airtel-run cloud security pod.",
+  phase: "● Phase 1 · H1 FY'27 launch",
+  phaseClass: "p1",
+  contactRole: "cloud security architect",
+  sideFeatures: [
+    "Web App & API Protection (WAAP)",
+    "CNAPP — Cloud-Native App Protection",
+    "DSPM — Data Security Posture",
+    "DAM — Database Activity Monitoring",
+    "AppSec — SAST · DAST · SBOM",
+    "Cloud IAM / CIEM"
+  ],
+  capabilitiesHead: "Six workload capabilities — covering app, data, cloud and API.",
+  capabilitiesSub: "Designed for AWS-, Azure-, GCP- and OCI-heavy environments. Native to Indian data residency requirements.",
+  capabilities: [
+    { name: "Web App & API Protection (WAAP)", desc: "WAF, bot management, API discovery and threat protection, edge DDoS — protecting public apps and partner APIs alike." },
+    { name: "Cloud-Native App Protection (CNAPP)", desc: "Continuous workload, config, vulnerability and runtime protection across multi-cloud — agent + agentless." },
+    { name: "Data Security Posture (DSPM)", desc: "Find sensitive data wherever it sleeps — across AWS S3, Azure Blob, GCP, Snowflake, Databricks and SaaS. Auto-classify and alert on exposure." },
+    { name: "Database Activity Monitoring (DAM)", desc: "Real-time activity monitoring, privileged DB access controls, and audit-grade logging for regulated databases." },
+    { name: "AppSec (SAST · DAST · SBOM)", desc: "Shift-left scanning embedded in CI/CD — code, dependency, container and SBOM tracking with policy gates." },
+    { name: "Cloud IAM / CIEM", desc: "Cloud entitlement management — find and remediate over-permissive roles across IAM, RBAC and federation." }
+  ],
+  outcomes: [
+    { value: 6, suffix: "+", label: "Cloud platforms supported (AWS, Azure, GCP, OCI, IBM, AliCloud)" },
+    { value: 92, suffix: "%", label: "Of cloud breaches start with misconfig — DSPM eliminates this" },
+    { value: 14, suffix: " days", label: "Median time to first remediated finding" },
+    { value: 60, suffix: "%", label: "Avg. reduction in cloud over-privilege" }
+  ],
+  howItWorks: [
+    { title: "Discover", desc: "Connect your cloud accounts read-only. We map workloads, data stores, identities and APIs." },
+    { title: "Baseline", desc: "Posture report against CIS, NIST, RBI cloud guidelines and your own policy. Risk-prioritised." },
+    { title: "Remediate", desc: "Auto-remediation playbooks for common misconfigs; co-managed remediation for everything else." },
+    { title: "Govern", desc: "Continuous monitoring, policy-as-code, drift detection. Monthly cloud security reviews with your eng team." }
+  ],
+  diagramTitle: "Workload defence in depth",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <g fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)">
+      <rect x="20" y="20" width="360" height="40" rx="8"/>
+      <rect x="20" y="80" width="170" height="40" rx="8"/>
+      <rect x="210" y="80" width="170" height="40" rx="8"/>
+      <rect x="20" y="140" width="170" height="40" rx="8"/>
+      <rect x="210" y="140" width="170" height="40" rx="8"/>
+      <rect x="20" y="200" width="360" height="30" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="200" y="44">WAAP — edge: WAF · Bot · API · DDoS</text>
+      <text x="105" y="104">CNAPP runtime</text>
+      <text x="295" y="104">CIEM / Cloud IAM</text>
+      <text x="105" y="164">DSPM — data layer</text>
+      <text x="295" y="164">DAM — databases</text>
+      <text x="200" y="220">AppSec — CI/CD: SAST · DAST · SBOM</text>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "Fintech", title: "API protection for AA & UPI partner", desc: "API discovery surfaced 600+ undocumented endpoints; WAAP blocked credential stuffing campaign in week 2.", metric: "600+ shadow APIs" },
+    { industry: "Retail", title: "Multi-cloud DSPM rollout", desc: "Discovered PII spread across 14 S3 buckets and 3 Snowflake warehouses; remediated in 30 days.", metric: "0 exposed PII" },
+    { industry: "BFSI", title: "Cloud IAM clean-up at private bank", desc: "Reduced standing privileged roles by 73% across AWS landing zones; passed RBI cloud audit cleanly.", metric: "73% role reduction" }
+  ],
+  integrations: ["AWS", "Azure", "GCP", "OCI", "Snowflake", "Databricks", "Wiz", "Prisma Cloud"],
+  faqs: [
+    { q: "Why a managed CNAPP vs DIY?", a: "CNAPP without a tuning team becomes alert spam. We provide the tooling and the human triage — so eng teams see only fixable findings, not thousands of CVE noise." },
+    { q: "Does it run agentless?", a: "Yes — full agentless coverage for posture & data classification. Agent only needed for runtime protection on EC2/VMs." },
+    { q: "Can it integrate into our DevOps pipeline?", a: "Yes — gates in GitHub, GitLab, Jenkins, ADO. Findings ship as PR comments, not standalone tickets." },
+    { q: "When is this available in India?", a: "Phase 1 launches H1 FY'27. Early-access program is open today for design-partner customers." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

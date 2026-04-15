@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architecture Builder — Airtel Secure</title>
+  <meta name="description" content="Pick your industry, size and concerns. See your target Airtel Secure architecture instantly." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .arch-grid { display: grid; grid-template-columns: 340px 1fr; gap: 28px; align-items: flex-start; }
+    @media (max-width: 1000px) { .arch-grid { grid-template-columns: 1fr; } }
+
+    .control-group { margin-bottom: 20px; }
+    .control-group h5 { font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--text-mute); margin: 0 0 10px; font-weight: 600; }
+    .opt-row { display: grid; gap: 8px; }
+    .opt-pill {
+      padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-2);
+      background: #0d0d14; cursor: pointer; font-size: .88rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .opt-pill input { accent-color: var(--red); }
+    .opt-pill.selected { border-color: var(--red); background: rgba(228,0,0,.08); }
+
+    .diagram-wrap {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: radial-gradient(600px 300px at 50% 0%, rgba(228,0,0,.08), transparent 60%), #0a0a10;
+      padding: 24px;
+      min-height: 620px;
+      position: relative;
+      overflow: auto;
+    }
+    .diagram-title { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-bottom: 6px; }
+    .diagram-sub { color: var(--text-mute); font-size: .88rem; margin-bottom: 18px; }
+
+    .block {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      font-size: .84rem;
+      position: relative;
+      transition: all .25s ease;
+    }
+    .block.active {
+      border-color: var(--red);
+      box-shadow: 0 6px 24px rgba(228,0,0,.25);
+      background: linear-gradient(180deg, rgba(228,0,0,.12), rgba(228,0,0,.02));
+    }
+    .block.dim { opacity: .35; }
+    .block b { display: block; font-family: var(--display); font-size: .92rem; margin-bottom: 4px; }
+    .block small { color: var(--text-mute); font-size: .75rem; }
+
+    .lane {
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .lane-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .lane-head h4 { font-family: var(--display); font-size: 1rem; }
+    .lane-head .count { font-size: .76rem; color: var(--text-mute); }
+    .lane .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    @media (max-width: 700px) { .lane .row { grid-template-columns: repeat(2, 1fr); } }
+
+    .summary-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 18px; border: 1px solid var(--border-2); border-radius: 14px;
+      background: #0d0d14; margin-top: 16px; flex-wrap: wrap; gap: 12px;
+    }
+    .summary-bar b { font-family: var(--display); font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main>
+  <div class="container bread">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#tools">Tools</a><span>/</span><span>Architecture Builder</span>
+  </div>
+
+  <section class="section" style="padding: 50px 0">
+    <div class="container">
+      <div class="section-head" style="text-align:left">
+        <span class="eyebrow">Architecture Builder</span>
+        <h1 style="margin-top:14px">Design your Airtel Secure blueprint — live.</h1>
+        <p>Pick your profile. The reference architecture below highlights the exact capabilities you need, with SKUs, rationale and deployment order.</p>
+      </div>
+
+      <div class="arch-grid">
+        <!-- CONTROLS -->
+        <div class="card">
+          <div class="control-group">
+            <h5>Industry</h5>
+            <select id="industry" class="field" style="width:100%;padding:12px;border-radius:10px;background:#0d0d14;color:var(--text);border:1px solid var(--border-2)">
+              <option value="bfsi">BFSI (Banking, NBFC, insurance)</option>
+              <option value="healthcare">Healthcare & pharma</option>
+              <option value="manufacturing">Manufacturing / OT</option>
+              <option value="retail">Retail & e-commerce</option>
+              <option value="public">Public sector</option>
+              <option value="telco">Telecom & media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <h5>Company size</h5>
+            <div class="opt-row" id="size-opts"></div>
+          </div>
+
+          <div class="control-group">
+            <h5>Environment</h5>
+            <div class="opt-row" id="env-opts"></div>
+          </div>
+
+          <div class="control-group">
+            <h5>Top concerns <span style="font-weight:400;color:var(--text-mute);text-transform:none;letter-spacing:0">(pick any)</span></h5>
+            <div class="opt-row" id="concerns-opts"></div>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%" id="reset-btn">Reset to defaults</button>
+        </div>
+
+        <!-- DIAGRAM -->
+        <div>
+          <div class="diagram-wrap">
+            <div class="diagram-title" id="d-title">Reference architecture · Your blueprint</div>
+            <div class="diagram-sub" id="d-sub">Components highlighted in red are required for your profile. Dimmed blocks remain available but not prioritised in phase 1.</div>
+
+            <div class="lane" data-lane="edge">
+              <div class="lane-head"><h4>Edge & Access</h4><span class="count" id="c-edge"></span></div>
+              <div class="row" id="lane-edge"></div>
+            </div>
+            <div class="lane" data-lane="workforce">
+              <div class="lane-head"><h4>Secure Workforce</h4><span class="count" id="c-workforce"></span></div>
+              <div class="row" id="lane-workforce"></div>
+            </div>
+            <div class="lane" data-lane="workload">
+              <div class="lane-head"><h4>Secure Workload / Cloud</h4><span class="count" id="c-workload"></span></div>
+              <div class="row" id="lane-workload"></div>
+            </div>
+            <div class="lane" data-lane="managed">
+              <div class="lane-head"><h4>Managed &amp; Response</h4><span class="count" id="c-managed"></span></div>
+              <div class="row" id="lane-managed"></div>
+            </div>
+            <div class="lane" data-lane="emerging">
+              <div class="lane-head"><h4>Emerging · AI / IoT / OT</h4><span class="count" id="c-emerging"></span></div>
+              <div class="row" id="lane-emerging"></div>
+            </div>
+            <div class="lane" data-lane="program">
+              <div class="lane-head"><h4>Program, Advisory &amp; GRC</h4><span class="count" id="c-program"></span></div>
+              <div class="row" id="lane-program"></div>
+            </div>
+          </div>
+
+          <div class="summary-bar">
+            <div>
+              <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute)">Deployment horizon</div>
+              <b id="horizon">Phase 1 · 30–60 days · Phase 2 · 90 days</b>
+            </div>
+            <div>
+              <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute)">Estimated user price band</div>
+              <b id="price">₹45–₹120 / user / month</b>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="../index.html#contact">Send this blueprint to a PM →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/architecture.js"></script>
+</body>
+</html>

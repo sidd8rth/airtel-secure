@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compliance Command Center — Airtel Secure</title>
+  <meta name="description" content="See which Airtel Secure capabilities satisfy DPDP, RBI, SEBI, IRDAI and CERT-In controls." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .matrix { border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: #0d0d14; }
+    .matrix-head { display: grid; grid-template-columns: 320px repeat(5, 1fr); background: #15151d; border-bottom: 1px solid var(--border); }
+    .matrix-head > div { padding: 16px; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--text-mute); font-weight: 600; border-right: 1px solid var(--border); }
+    .matrix-head > div:last-child { border-right: none; }
+    .matrix-row { display: grid; grid-template-columns: 320px repeat(5, 1fr); border-bottom: 1px solid var(--border); transition: background .15s; }
+    .matrix-row:last-child { border-bottom: none; }
+    .matrix-row:hover { background: rgba(228,0,0,.04); }
+    .matrix-cell { padding: 16px; border-right: 1px solid var(--border); font-size: .88rem; }
+    .matrix-cell:last-child { border-right: none; }
+    .matrix-cell.cap { color: var(--text); font-weight: 500; }
+    .matrix-cell.cap small { display: block; color: var(--text-mute); font-size: .78rem; margin-top: 2px; font-weight: 400; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+    .dot.full { background: #2ecc71; box-shadow: 0 0 8px rgba(46,204,113,.6); }
+    .dot.partial { background: #ffb020; box-shadow: 0 0 8px rgba(255,176,32,.5); }
+    .dot.na { background: #333; }
+    .coverage-val { font-size: .78rem; color: var(--text-mute); }
+
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+    .filter-bar input { min-width: 260px; }
+    .filter-chip {
+      padding: 8px 14px; border-radius: 999px; background: #0d0d14;
+      border: 1px solid var(--border-2); cursor: pointer; font-size: .84rem; color: var(--text-dim);
+      transition: all .15s;
+    }
+    .filter-chip.active { background: var(--red); color: #fff; border-color: var(--red); }
+    .filter-chip:hover { color: var(--text); border-color: var(--border-2); }
+
+    @media (max-width: 1100px) {
+      .matrix-head, .matrix-row { grid-template-columns: 1fr; }
+      .matrix-cell, .matrix-head > div { border-right: none; border-bottom: 1px dashed var(--border); }
+      .matrix-head > div:not(:first-child) { display:none; }
+      .matrix-cell:not(.cap)::before { content: attr(data-label) " · "; color: var(--text-mute); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; margin-right: 6px; }
+    }
+
+    /* Regulator cards */
+    .reg { border: 1px solid var(--border); border-radius: 16px; padding: 20px; background: linear-gradient(180deg, var(--surface), transparent); }
+    .reg h4 { font-family: var(--display); font-size: 1.05rem; margin-bottom: 8px; }
+    .reg .meta { font-size: .76rem; color: var(--text-mute); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+    .reg ul { margin: 0; padding: 0; list-style: none; }
+    .reg ul li { padding: 6px 0; font-size: .86rem; color: var(--text-dim); border-bottom: 1px dashed var(--border); }
+    .reg ul li:last-child { border: none; }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main>
+  <div class="container bread">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#tools">Tools</a><span>/</span><span>Compliance Command Center</span>
+  </div>
+
+  <section class="section" style="padding: 50px 0 40px">
+    <div class="container">
+      <div class="section-head" style="text-align:left">
+        <span class="eyebrow">Compliance Command Center</span>
+        <h1 style="margin-top:14px">One matrix. Every Indian regulation. Mapped to Airtel Secure.</h1>
+        <p>Stop chasing consultants for compliance gap analysis. This live matrix shows you which Airtel Secure capability satisfies which control — for DPDP Act 2023, RBI cyber guidelines, SEBI CSCRF, IRDAI and CERT-In 6-hour reporting.</p>
+      </div>
+
+      <!-- Regulator cards -->
+      <div class="grid grid-5 mb-8">
+        <div class="reg"><div class="meta">Data protection</div><h4>DPDP Act 2023</h4><ul><li>Consent & notice</li><li>Data principal rights</li><li>Breach notification</li><li>DPO appointment</li></ul></div>
+        <div class="reg"><div class="meta">Banking</div><h4>RBI cyber</h4><ul><li>Baseline cyber framework</li><li>Digital payment security</li><li>Cloud outsourcing</li><li>IT examination</li></ul></div>
+        <div class="reg"><div class="meta">Markets</div><h4>SEBI CSCRF</h4><ul><li>Cyber security & resilience</li><li>Third-party risk</li><li>Incident reporting</li><li>Audit requirements</li></ul></div>
+        <div class="reg"><div class="meta">Insurance</div><h4>IRDAI</h4><ul><li>Info & cyber security guidelines</li><li>Data localisation</li><li>Risk assessment</li><li>BCP / DR</li></ul></div>
+        <div class="reg"><div class="meta">National</div><h4>CERT-In</h4><ul><li>6-hour incident reporting</li><li>180-day log retention</li><li>Synchronised time</li><li>KYC for crypto/VPN</li></ul></div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <div class="field" style="margin:0;flex:1;max-width:360px">
+          <input id="search" placeholder="Search capabilities (e.g. MFA, DLP, SOC, encryption)" />
+        </div>
+        <button class="filter-chip active" data-reg="all">All</button>
+        <button class="filter-chip" data-reg="dpdp">DPDP</button>
+        <button class="filter-chip" data-reg="rbi">RBI</button>
+        <button class="filter-chip" data-reg="sebi">SEBI</button>
+        <button class="filter-chip" data-reg="irdai">IRDAI</button>
+        <button class="filter-chip" data-reg="certin">CERT-In</button>
+      </div>
+
+      <!-- Matrix -->
+      <div class="matrix">
+        <div class="matrix-head">
+          <div>Airtel Secure capability</div>
+          <div>DPDP</div><div>RBI</div><div>SEBI</div><div>IRDAI</div><div>CERT-In</div>
+        </div>
+        <div id="matrix-body"></div>
+      </div>
+
+      <div class="center mt-8" style="color:var(--text-mute); font-size:.86rem">
+        <span class="dot full"></span> Full coverage
+        <span style="margin-left:18px"></span>
+        <span class="dot partial"></span> Supports/enables
+        <span style="margin-left:18px"></span>
+        <span class="dot na"></span> Not applicable
+      </div>
+
+      <div class="callout mt-8">
+        <div class="grid grid-2" style="align-items:center">
+          <div>
+            <h2>Need a signed control-by-control mapping for your next audit?</h2>
+            <p class="mt-4">We can deliver a full DPDP, RBI or SEBI gap analysis with mapped evidence — signed by our CERT-In empaneled advisory team — within 14 days.</p>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="../index.html#contact">Request gap analysis →</a>
+            <a class="btn btn-ghost" href="../stack/advisory.html">Advisory services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/compliance.js"></script>
+</body>
+</html>

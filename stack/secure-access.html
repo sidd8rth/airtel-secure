@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Access — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main id="stack-host"></main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Secure Access",
+  eyebrow: "Pillar · Live",
+  title: "Secure Access — telco-grade defence at the edge.",
+  subtitle: "Stop attacks before they reach you. Multi-terabit DDoS scrubbing on India's largest enterprise backbone, plus next-gen firewall, NDR, NAC and full SSE/SASE — delivered as one cloud-managed service.",
+  phase: "● Live · Available today",
+  phaseClass: "live",
+  contactRole: "network security architect",
+  sideFeatures: [
+    "Anti-DDoS · 14.7 Tbps capacity",
+    "Next-gen firewall — managed",
+    "Secure Service Edge (SSE / SASE)",
+    "NDR — east-west detection",
+    "NAC — posture-based access",
+    "Secure DNS"
+  ],
+  capabilitiesHead: "Six edge capabilities. Built into the network, not bolted on.",
+  capabilitiesSub: "Because we run the network, threats can be stopped on the backbone — not at your perimeter.",
+  capabilities: [
+    { name: "Anti-DDoS · multi-Tbps", desc: "India's largest enterprise scrubbing capacity. Volumetric, protocol and application-layer attacks neutralised on Airtel backbone before reaching your origin." },
+    { name: "Next-gen Firewall (managed)", desc: "Multi-vendor firewall design, deploy, harden and operate. Fortinet, Palo Alto, Check Point, Cisco — your choice, our SOC." },
+    { name: "Secure Service Edge (SSE)", desc: "SWG, ZTNA, CASB, RBI and DLP from one identity-aware cloud. India PoPs ensure low-latency for branches and remote staff." },
+    { name: "Network Detection & Response", desc: "East-west traffic inspection, encrypted-traffic analytics, lateral movement detection — fed straight into the Airtel SOC." },
+    { name: "Network Access Control (NAC)", desc: "Posture-based admission for managed and BYOD devices. Microsegmented enforcement, integrated with EDR and IAM signals." },
+    { name: "Secure DNS", desc: "DNS-layer filtering for malware, phishing and C2 — protecting users on and off network." }
+  ],
+  outcomes: [
+    { value: 14.7, suffix: " Tbps", label: "Largest scrubbing capacity in India" },
+    { value: 99.999, suffix: "%", label: "Anti-DDoS availability SLA" },
+    { value: 4, suffix: " min", label: "Median attack-to-mitigation time" },
+    { value: 18, suffix: " PoPs", label: "India SSE points of presence" }
+  ],
+  howItWorks: [
+    { title: "Inspect", desc: "We baseline your inbound and east-west traffic, identify protected assets and attack surface." },
+    { title: "Onboard", desc: "BGP route, IPSec or direct fibre on-ramp — typically live in 2 weeks. SSE policies migrated from your existing tools." },
+    { title: "Mitigate", desc: "Always-on or on-demand scrubbing, with auto-mitigation playbooks for known attack signatures." },
+    { title: "Operate", desc: "24×7 NOC + SOC — co-managed dashboards, SLA reports, monthly tuning workshops." }
+  ],
+  diagramTitle: "Where Secure Access sits",
+  diagramSub: "On the Airtel backbone — between threats and your applications.",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <rect x="20" y="20" width="100" height="40" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)"/>
+    <text x="70" y="44" text-anchor="middle" fill="#fff" font-size="11">Internet</text>
+    <rect x="20" y="100" width="100" height="40" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)"/>
+    <text x="70" y="124" text-anchor="middle" fill="#fff" font-size="11">Branches</text>
+    <rect x="20" y="180" width="100" height="40" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)"/>
+    <text x="70" y="204" text-anchor="middle" fill="#fff" font-size="11">Remote</text>
+
+    <rect x="160" y="80" width="120" height="80" rx="14" fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)"/>
+    <text x="220" y="115" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Space Grotesk">Airtel SSE</text>
+    <text x="220" y="135" text-anchor="middle" fill="#a1a1aa" font-size="10">DDoS · FW · ZTNA · SWG</text>
+
+    <rect x="320" y="20" width="60" height="200" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)"/>
+    <text x="350" y="115" text-anchor="middle" fill="#fff" font-size="11">Apps</text>
+    <text x="350" y="130" text-anchor="middle" fill="#a1a1aa" font-size="9">DC + cloud</text>
+
+    <g stroke="rgba(228,0,0,.5)" fill="none">
+      <line x1="120" y1="40" x2="160" y2="100"/>
+      <line x1="120" y1="120" x2="160" y2="120"/>
+      <line x1="120" y1="200" x2="160" y2="140"/>
+      <line x1="280" y1="120" x2="320" y2="120"/>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "BFSI", title: "Tier-1 bank under sustained DDoS", desc: "We absorbed a 280 Gbps multi-vector attack during quarter-end peak with zero customer impact.", metric: "0 sec downtime" },
+    { industry: "Retail", title: "E-commerce sale day, 4× normal traffic", desc: "WAAP + bot mitigation kept legitimate buyers flowing while blocking 92% of automated traffic.", metric: "92% bots blocked" },
+    { industry: "Public", title: "State portal SSE rollout, 40k users", desc: "Migrated off legacy VPN to ZTNA + SWG — full rollout in 6 weeks across 12 districts.", metric: "6-week rollout" }
+  ],
+  integrations: ["Palo Alto", "Fortinet", "Check Point", "Cisco", "Zscaler", "Netskope", "Microsoft", "Cloudflare"],
+  faqs: [
+    { q: "Can I keep my existing firewall vendor?", a: "Yes. Our managed firewall service is multi-vendor — Palo Alto, Fortinet, Check Point and Cisco. We'll harden, operate and tune what you already own." },
+    { q: "Do I have to be an Airtel network customer?", a: "No. Anti-DDoS, SSE and managed firewall can be consumed even if your underlying network is from another provider — though Airtel customers get tighter integration and pricing." },
+    { q: "How fast is mitigation?", a: "Median 4 minutes for known attack signatures with always-on protection. On-demand scrubbing kicks in within 90 seconds of threshold breach." },
+    { q: "Where are the SSE PoPs?", a: "18 India PoPs across major metros and Tier-2 cities, plus global PoPs through partner backbones for outbound users." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

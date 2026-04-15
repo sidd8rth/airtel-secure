@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Workforce — Airtel Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main id="stack-host"></main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+window.STACK_DATA = {
+  titlePlain: "Secure Workforce",
+  eyebrow: "Pillar · Live",
+  title: "Secure Workforce — for the way work actually happens.",
+  subtitle: "Hybrid teams, bring-your-own-device, contractor sprawl, SaaS-everywhere. We secure every endpoint, identity, file and email — managed end-to-end so your security team can stop firefighting.",
+  phase: "● Live · Available today",
+  phaseClass: "live",
+  contactRole: "workforce security architect",
+  sideFeatures: [
+    "Endpoint management & protection",
+    "Identity & Access Management (IAM)",
+    "Data discovery & classification",
+    "DLP across endpoint, email, SaaS",
+    "Email · VDI · Browser isolation",
+    "Privileged Access Management (PAM)"
+  ],
+  capabilitiesHead: "Seven workforce capabilities. One managed service.",
+  capabilitiesSub: "Designed for India: thousands of branches, contractor-heavy operating models, regulated data flows.",
+  capabilities: [
+    { name: "Endpoint management & protection", desc: "Managed EDR/XDR with 24×7 SOC. Full visibility across Windows, Mac, Linux and mobile. Patch, encryption, USB control included." },
+    { name: "Identity & Access Management", desc: "SSO, MFA, lifecycle, access reviews. PAM, just-in-time access and zero-standing-privilege for admins." },
+    { name: "Data discovery & classification", desc: "Find PII, PCI, KYC, source code wherever it lives. Auto-classify and apply policy without breaking workflows." },
+    { name: "DLP", desc: "One DLP policy across endpoint, email, SaaS and web. Behavioural, not signature — lower false positives, higher catch rate." },
+    { name: "VDI & browser isolation", desc: "Contractor and BYOD access without data leaving the perimeter. Pixel-streamed apps, isolated browsing, fully audited." },
+    { name: "Email & collaboration security", desc: "Phishing, BEC, malware, account takeover protection for MS365 and Google Workspace. Includes anti-phishing AI and message recall." }
+  ],
+  outcomes: [
+    { value: 22000, suffix: "+", label: "Endpoints under managed protection" },
+    { value: 5, suffix: " min", label: "Median MTTD on endpoint incidents" },
+    { value: 78, suffix: "%", label: "Phishing click-through reduction (12 mo)" },
+    { value: 99.9, suffix: "%", label: "MFA coverage on managed identities" }
+  ],
+  howItWorks: [
+    { title: "Inventory", desc: "Discover every endpoint, identity, SaaS app and data store. Often we find 30-40% more than the customer expected." },
+    { title: "Onboard", desc: "Deploy EDR, MFA, DLP and email security in a phased rollout — typically 8 weeks for 10,000 seats." },
+    { title: "Operate", desc: "24×7 monitoring, alerting, containment and patching. Monthly tuning, quarterly access reviews." },
+    { title: "Improve", desc: "Continuous attack surface reduction, phishing simulation cycles, access certification — measured against industry baselines." }
+  ],
+  diagramTitle: "End-to-end workforce coverage",
+  diagramSvg: `<svg viewBox="0 0 400 240" style="width:100%">
+    <g fill="rgba(228,0,0,.12)" stroke="rgba(228,0,0,.5)">
+      <rect x="20" y="100" width="80" height="40" rx="8"/>
+      <rect x="120" y="40" width="80" height="40" rx="8"/>
+      <rect x="120" y="160" width="80" height="40" rx="8"/>
+      <rect x="220" y="100" width="80" height="40" rx="8"/>
+      <rect x="320" y="100" width="60" height="40" rx="8"/>
+    </g>
+    <g fill="#fff" font-size="11" text-anchor="middle">
+      <text x="60" y="124">User</text>
+      <text x="160" y="64">Endpoint</text>
+      <text x="160" y="184">Identity</text>
+      <text x="260" y="124">DLP / Data</text>
+      <text x="350" y="124">SaaS</text>
+    </g>
+    <g stroke="rgba(228,0,0,.4)" fill="none">
+      <line x1="100" y1="120" x2="120" y2="60"/>
+      <line x1="100" y1="120" x2="120" y2="180"/>
+      <line x1="200" y1="60" x2="220" y2="120"/>
+      <line x1="200" y1="180" x2="220" y2="120"/>
+      <line x1="300" y1="120" x2="320" y2="120"/>
+    </g>
+  </svg>`,
+  useCases: [
+    { industry: "BFSI", title: "18k bank rollout — single managed service", desc: "Replaced 4 endpoint vendors with one Airtel-managed XDR + IAM platform.", metric: "MTTR ↓ 94%" },
+    { industry: "Healthcare", title: "Hospital chain — DLP across 12k endpoints", desc: "PHI discovery and policy enforcement without breaking clinician workflows.", metric: "0 PHI exfil events" },
+    { industry: "BPO", title: "BPO with 8k seasonal contractors", desc: "VDI + browser isolation gives contractors access without data leaving our perimeter.", metric: "↓ 100% device theft risk" }
+  ],
+  integrations: ["CrowdStrike", "SentinelOne", "Microsoft Defender", "Okta", "Microsoft Entra", "Forcepoint", "Symantec DLP", "VMware Horizon"],
+  faqs: [
+    { q: "Can you co-manage with our existing internal team?", a: "Yes — we run a fully co-managed model. Your team owns policy, ours handles 24×7 ops, tuning and IR." },
+    { q: "Do you support Mac and Linux endpoints?", a: "Yes, full coverage including Mac, Linux server fleets and mobile (iOS / Android via MDM)." },
+    { q: "How is privileged access handled?", a: "Just-in-time elevation via integrated PAM. No standing admin rights, with full session recording and approval workflow." },
+    { q: "Can DLP be deployed without disrupting business?", a: "We always start in monitor-only mode for 4-6 weeks to baseline behaviour before enforcing — keeps disruption near zero." }
+  ]
+};
+</script>
+<script src="../assets/js/stack-page.js"></script>
+</body>
+</html>

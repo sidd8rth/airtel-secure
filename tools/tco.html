@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TCO & ROI Calculator — Airtel Secure</title>
+  <meta name="description" content="Enter your current vendor spend. See 3-year savings and payback with Airtel Secure." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .tco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: flex-start; }
+    @media (max-width: 900px) { .tco-grid { grid-template-columns: 1fr; } }
+
+    .slider-row { display: grid; grid-template-columns: 1fr 110px; gap: 14px; align-items: center; margin-bottom: 20px; }
+    .slider-row label { font-size: .88rem; color: var(--text-dim); }
+    .slider-row .val { font-family: var(--display); font-weight: 600; text-align: right; color: var(--text); }
+    input[type=range] { width: 100%; accent-color: var(--red); }
+
+    .result-tile { padding: 20px; border: 1px solid var(--border-2); border-radius: 14px; background: #0d0d14; }
+    .result-tile h5 { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-mute); margin: 0 0 8px; }
+    .result-tile .big { font-family: var(--display); font-size: 1.9rem; font-weight: 700; line-height: 1.1; }
+    .result-tile .sub { color: var(--text-mute); font-size: .82rem; margin-top: 4px; }
+
+    .chart { height: 260px; width: 100%; }
+    .share-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .assumption { font-size: .78rem; color: var(--text-mute); line-height: 1.7; }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div id="site-header"></div>
+
+<main>
+  <div class="container bread">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#tools">Tools</a><span>/</span><span>TCO & ROI</span>
+  </div>
+
+  <section class="section" style="padding: 50px 0">
+    <div class="container">
+      <div class="section-head" style="text-align:left">
+        <span class="eyebrow">TCO & ROI Calculator</span>
+        <h1 style="margin-top:14px">Consolidate 8 vendors into 1. See your 3-year savings in 30 seconds.</h1>
+        <p>Enter your current spend across four pillars + organisation size. We'll show your Airtel Secure run-rate, 3-year TCO, payback period and expected risk reduction — all client-side, nothing sent anywhere.</p>
+      </div>
+
+      <div class="tco-grid">
+        <!-- INPUTS -->
+        <div class="card">
+          <h3 style="margin-bottom:18px">Your current state</h3>
+
+          <div class="slider-row">
+            <label>Network security spend (FW, DDoS, SSE) per year</label>
+            <input class="val" id="in-network-val" value="₹2.5 Cr" readonly />
+          </div>
+          <input type="range" id="in-network" min="0" max="20" step="0.25" value="2.5" />
+
+          <div class="slider-row">
+            <label>Endpoint & workforce spend (EDR, DLP, email, IAM)</label>
+            <input class="val" id="in-endpoint-val" value="₹1.8 Cr" readonly />
+          </div>
+          <input type="range" id="in-endpoint" min="0" max="20" step="0.25" value="1.8" />
+
+          <div class="slider-row">
+            <label>Cloud & workload spend (WAAP, CNAPP, DSPM)</label>
+            <input class="val" id="in-cloud-val" value="₹1.2 Cr" readonly />
+          </div>
+          <input type="range" id="in-cloud" min="0" max="20" step="0.25" value="1.2" />
+
+          <div class="slider-row">
+            <label>Managed services spend (SOC, MDR, IR retainers)</label>
+            <input class="val" id="in-managed-val" value="₹2.0 Cr" readonly />
+          </div>
+          <input type="range" id="in-managed" min="0" max="20" step="0.25" value="2.0" />
+
+          <div class="slider-row">
+            <label>Number of employees</label>
+            <input class="val" id="in-users-val" value="5,000" readonly />
+          </div>
+          <input type="range" id="in-users" min="100" max="50000" step="100" value="5000" />
+
+          <div class="slider-row">
+            <label>Active security vendors today</label>
+            <input class="val" id="in-vendors-val" value="8" readonly />
+          </div>
+          <input type="range" id="in-vendors" min="2" max="25" step="1" value="8" />
+
+          <div class="slider-row">
+            <label>Internal security FTEs</label>
+            <input class="val" id="in-ftes-val" value="10" readonly />
+          </div>
+          <input type="range" id="in-ftes" min="0" max="100" step="1" value="10" />
+
+          <p class="assumption mt-8">
+            <b>Assumptions</b> — Airtel Secure base pricing: ₹12.5/user/month for workforce stack, ₹9.8/user for access, ₹14/user cloud, ₹22/user managed; India telco discount 18–32% at scale; consolidation efficiency 38% avg; FTE redirection saves ~₹18L/FTE/yr. These figures are directional; a priced quote follows a 30-min scoping call.
+          </p>
+        </div>
+
+        <!-- RESULTS -->
+        <div>
+          <div class="grid grid-2" style="gap:14px">
+            <div class="result-tile">
+              <h5>Your current run-rate</h5>
+              <div class="big" id="r-current">₹7.5 Cr</div>
+              <div class="sub">Per year, across all pillars</div>
+            </div>
+            <div class="result-tile" style="border-color:rgba(228,0,0,.4); background: linear-gradient(135deg, rgba(228,0,0,.1), transparent)">
+              <h5>Airtel Secure run-rate</h5>
+              <div class="big" id="r-airtel">₹4.65 Cr</div>
+              <div class="sub">Single contract, outcome SLAs</div>
+            </div>
+            <div class="result-tile">
+              <h5>Annual savings</h5>
+              <div class="big" style="color:#6ee8a6" id="r-savings">₹2.85 Cr</div>
+              <div class="sub" id="r-savings-pct">38% consolidation reduction</div>
+            </div>
+            <div class="result-tile">
+              <h5>3-year TCO savings</h5>
+              <div class="big" style="color:#6ee8a6" id="r-3yr">₹8.55 Cr</div>
+              <div class="sub">Compounding, plus FTE redeployment</div>
+            </div>
+          </div>
+
+          <div class="card mt-6">
+            <h3 style="margin-bottom:8px">3-year TCO comparison</h3>
+            <p style="font-size:.86rem">Blue = current fragmented stack · Red = Airtel Secure</p>
+            <svg class="chart" id="chart" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+            <div style="display:flex;gap:18px;margin-top:8px;font-size:.8rem;color:var(--text-mute)">
+              <span><span style="display:inline-block;width:10px;height:10px;background:#3b82f6;border-radius:2px;margin-right:6px"></span>Current</span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:#ff2b2b;border-radius:2px;margin-right:6px"></span>Airtel Secure</span>
+            </div>
+          </div>
+
+          <div class="card mt-6">
+            <h3 style="margin-bottom:14px">Extras you shouldn't leave off the business case</h3>
+            <div class="grid grid-2" style="gap:12px">
+              <div class="result-tile">
+                <h5>FTE hours redirected</h5>
+                <div class="big" id="r-fte">3,200 hrs/yr</div>
+                <div class="sub">Ops → strategic work</div>
+              </div>
+              <div class="result-tile">
+                <h5>Vendor contracts eliminated</h5>
+                <div class="big" id="r-vendors">6</div>
+                <div class="sub">Procurement & legal overhead</div>
+              </div>
+              <div class="result-tile">
+                <h5>Breach risk reduction</h5>
+                <div class="big" id="r-risk">-54%</div>
+                <div class="sub">Avg from 240+ Airtel deployments</div>
+              </div>
+              <div class="result-tile">
+                <h5>Payback period</h5>
+                <div class="big" id="r-payback">6 months</div>
+                <div class="sub">Including transition</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout mt-6">
+            <h3>Want this signed off by finance?</h3>
+            <p class="mt-4">We'll turn these numbers into a board-ready business case — with references from 3 similar enterprises in your industry — inside a week.</p>
+            <div class="share-row">
+              <a class="btn btn-primary" href="../index.html#contact">Request priced quote →</a>
+              <a class="btn btn-ghost" href="architecture.html">Design target architecture</a>
+              <button class="btn btn-ghost" id="print-btn">Print / save PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/partials.js" data-base="../"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/tco.js"></script>
+</body>
+</html>
